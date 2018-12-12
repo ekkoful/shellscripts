@@ -157,6 +157,7 @@ cmdline=$(cat /proc/cmdline)
 
 
 # Initialize hardware
+# 初始化硬件设备
 if [ -f /proc/sys/kernel/modprobe ]; then
    if ! strstr "$cmdline" nomodules && [ -f /proc/modules ] ; then
        sysctl -w kernel.modprobe="/sbin/modprobe" >/dev/null 2>&1
