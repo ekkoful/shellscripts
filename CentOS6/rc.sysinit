@@ -169,8 +169,9 @@ fi
 # /proc/sys/kernel/modprobe: 内核中加载模块
 # cat /proc/sys/kernel/modprobe
 # /sbin/modprobe 
-#
-# 
+# strstr 函数
+# sysctl -w: 直接写入配置并生效
+
 
 touch /dev/.in_sysinit >/dev/null 2>&1
 
