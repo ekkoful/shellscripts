@@ -123,6 +123,7 @@ relabel_selinux() {
 
 # Print a text banner.
 echo -en $"\t\tWelcome to "
+# 输出welcome 不换行
 read -r system_release < /etc/system-release
 if [[ "$system_release" == *"Red Hat"* ]]; then
  [ "$BOOTUP" = "color" ] && echo -en "\\033[0;31m"
