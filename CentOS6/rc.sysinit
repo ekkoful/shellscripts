@@ -170,7 +170,8 @@ fi
 # /proc/sys/kernel/modprobe: 内核中加载模块
 # cat /proc/sys/kernel/modprobe
 # /sbin/modprobe 
-# strstr 函数
+# strstr 函数 在/etc/init.d/functions中定义
+#
 # sysctl -w: 直接写入配置并生效
 
 
