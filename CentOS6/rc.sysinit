@@ -44,12 +44,16 @@ else
 	mount -n -t usbfs /proc/bus/usb /proc/bus/usb
 fi
 # 检查usb设备目录是否存在
+# 如果不存在，加载 usbcore 模块，然后挂载 usbfs 虚拟文件系统
+# >, 标准输出重定向到 /dev/null,  2>&1, 标准错误重定向到标准输出
 
 #remount /dev/shm to set attributes from fstab #669700
 mount -n -o remount /dev/shm >/dev/null 2>&1
 #remount /proc to set attributes from fstab #984003
 mount -n -o remount /proc >/dev/null 2>&1
+
 # 重新挂载目录, 并设置属性
+# 重新挂载虚拟文件系统 /proc 
 
 . /etc/init.d/functions
 # 加载函数
@@ -72,8 +76,9 @@ if [ -e "/selinux/enforce" ] && [ "$(cat /proc/self/attr/current)" != "kernel" ]
 	fi
 fi
 # 判断 selinux 是否开启
-# 如果 
-# -e 判断是否存在文件, -r 判断是否对此文件拥有写权限
+# 如果存在文件 /selinux/enforce 并且 cat /proc/self/attr/current 文件内容不为 kernel
+# 然后判断是否对于 /selinux/enforce 是否存在读权限
+# -e 判断是否存在文件, -r 判断是否对此文件拥有读权限
 
 
 if [ -n "$SELINUX_STATE" -a -x /sbin/restorecon ] && __fgrep " /dev " /proc/mounts >/dev/null 2>&1 ; then
