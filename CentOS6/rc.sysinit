@@ -72,14 +72,16 @@ if [ -e "/selinux/enforce" ] && [ "$(cat /proc/self/attr/current)" != "kernel" ]
 	fi
 fi
 # 判断 selinux 是否开启
+# 如果 
 # -e 判断是否存在文件, -r 判断是否对此文件拥有写权限
 
 
 if [ -n "$SELINUX_STATE" -a -x /sbin/restorecon ] && __fgrep " /dev " /proc/mounts >/dev/null 2>&1 ; then
 	/sbin/restorecon -R -F /dev 2>/dev/null
 fi
-# -n 判断变量是否存在(和 -z 的区别应该也是存在的)
-
+# -n 判断变量是否存在
+# -z 判断变量是否为空
+# __fgrep 函数
 
 disable_selinux() {
 	echo $"*** Warning -- SELinux is active"
