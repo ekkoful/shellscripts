@@ -87,6 +87,7 @@ fi
 # -n 判断变量是否存在
 # -z 判断变量是否为空
 # __fgrep 函数
+# 在 functions 文件中
 
 disable_selinux() {
 	echo $"*** Warning -- SELinux is active"
@@ -119,6 +120,9 @@ relabel_selinux() {
 	echo $"*** system size and speed of hard drives."
 
 	/sbin/fixfiles -F restore > /dev/null 2>&1
+	# 修复 SELinux 安全上下文文件
+	# -F 强制重置匹配的安全上下文文件
+	# restore 更改任何错误文件上下文标签
     fi
     rm -f  /.autorelabel
     echo $"Unmounting file systems"
