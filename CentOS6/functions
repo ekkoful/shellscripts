@@ -1,3 +1,5 @@
+#!/bin/bash
+# 个人加入 便于阅读 语法高亮
 # -*-Shell-script-*-
 #
 # functions	This file contains functions to be used by most or all
