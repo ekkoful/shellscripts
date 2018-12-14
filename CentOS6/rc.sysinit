@@ -87,7 +87,8 @@ fi
 # -n 判断变量是否存在
 # -z 判断变量是否为空
 # __fgrep 函数
-# 在 functions 文件中
+# 在 functions 文件中存在__fgrep函数
+# 
 
 disable_selinux() {
 	echo $"*** Warning -- SELinux is active"
@@ -96,6 +97,8 @@ disable_selinux() {
 	echo "0" > "/selinux/enforce"
 }
 # 关闭 selinux 
+# 输入 0 至 /selinux/enforce 关闭 selinux
+
 
 relabel_selinux() {
     # if /sbin/init is not labeled correctly this process is running in the
