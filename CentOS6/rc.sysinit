@@ -88,7 +88,8 @@ fi
 # -z 判断变量是否为空
 # __fgrep 函数
 # 在 functions 文件中存在__fgrep函数
-# 
+# 判断屏幕输出的变量是否 存在 " /dev " 如果存在输入至 /pro/mounts 
+# 如果 
 
 disable_selinux() {
 	echo $"*** Warning -- SELinux is active"
@@ -164,6 +165,7 @@ fi
 # 打印系统标识
 # echo -n 不换行输出
 # echo -e 处理特殊字符
+# sed 替换
 
 
 # Only read this once.
