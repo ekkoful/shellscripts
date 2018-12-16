@@ -223,6 +223,8 @@ done
 if [ -f /etc/rc.modules ]; then
 	/etc/rc.modules
 fi
+# 如果文件 /etc/rc.modules 存在
+# 执行 /etc/rc.modules 
 
 mount -n /dev/pts >/dev/null 2>&1
 [ -n "$SELINUX_STATE" ] && restorecon -F /dev/pts >/dev/null 2>&1
