@@ -213,6 +213,11 @@ unset nashpid
 for file in /etc/sysconfig/modules/*.modules ; do
   [ -x $file ] && $file
 done
+# 加载其它用户定义的模块
+# 如果文件存在 /etc/sysconfig/modules/ 目录下，并且以 .modules 结尾
+# 如果对于文件有执行权限，就执行文件
+
+
 
 # Load modules (for backward compatibility with VARs)
 if [ -f /etc/rc.modules ]; then
