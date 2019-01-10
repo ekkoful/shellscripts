@@ -2,9 +2,9 @@
 #
 # 分析线上日志，用于开发进行oncall
 
-ansible adserver_online --list > /data/oncall/hostlist
+ansible <hostpart> --list > /data/oncall/hostlist
 
-IP=`shuf -n1 /data/oncall/hostlist`
+IP=`shuf -n1 /data/oncall/hostlist`  # 随机读取文件中的一行
 
 ansible $IP -m shell -a "hostname" > /data/oncall/log/`date +%Y-%m-%d`.log
 
