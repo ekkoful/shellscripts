@@ -203,6 +203,8 @@ if [ -x /bin/taskset ]; then
      done
    fi
 fi
+# taskset命令可以修改"CPU亲缘性"
+# 这个函数设置默认亲缘性
 
 nashpid=$(pidof nash 2>/dev/null)
 [ -n "$nashpid" ] && kill $nashpid >/dev/null 2>&1
