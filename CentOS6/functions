@@ -556,6 +556,7 @@ strstr() {
   [ "${1#*$2*}" = "$1" ] && return 1
   return 0
 }
+# 如果$1中包含$2，就返回1
 
 # Confirm whether we really want to run this service
 confirm() {
