@@ -559,6 +559,8 @@ strstr() {
 }
 # 如果$1中包含$2，就返回1
 # 截取变量$1中出现的$2的字符
+# shell参数扩展，${}
+
 
 # Confirm whether we really want to run this service
 confirm() {
