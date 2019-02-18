@@ -82,6 +82,7 @@ __fgrep() {
     done < $f
     return 1
 }
+# __fgrep
 
 # __umount_loop awk_program fstab_file first_msg retry_msg retry_umount_args
 # awk_program should process fstab_file and return a list of fstab-encoded
@@ -557,6 +558,7 @@ strstr() {
   return 0
 }
 # 如果$1中包含$2，就返回1
+# 截取变量$1中出现的$2的字符
 
 # Confirm whether we really want to run this service
 confirm() {
