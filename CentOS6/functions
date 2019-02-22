@@ -22,6 +22,9 @@ export PATH
 # Get a sane screen width
 [ -z "${COLUMNS:-}" ] && COLUMNS=80
 # 变量${COLUMNS}是否存在
+# -z 判断变量是否被定义(判断字符串是否为空)
+# 变量如果没被定义，且没被扩展，返回真
+
 
 [ -z "${CONSOLETYPE:-}" ] && CONSOLETYPE="$(/sbin/consoletype)"
 
