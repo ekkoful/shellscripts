@@ -10,13 +10,18 @@ TEXTDOMAIN=initscripts
 
 # Make sure umask is sane
 umask 022
+# 设置umask为022
+# dir默认644
+# file默认755
 
 # Set up a default search path.
 PATH="/sbin:/usr/sbin:/bin:/usr/bin"
+# 设置查找路径
 export PATH
 
 # Get a sane screen width
 [ -z "${COLUMNS:-}" ] && COLUMNS=80
+# 变量${COLUMNS}是否存在
 
 [ -z "${CONSOLETYPE:-}" ] && CONSOLETYPE="$(/sbin/consoletype)"
 
@@ -560,6 +565,7 @@ strstr() {
 # 如果$1中包含$2，就返回1
 # 截取变量$1中出现的$2的字符
 # shell参数扩展，${}
+# 函数结果是，如果$2不存在，返回1
 
 
 # Confirm whether we really want to run this service
@@ -579,6 +585,7 @@ confirm() {
       fi
   done
 }
+# plymouth 屏幕分辨率的修改等
 
 # resolve a device node to its major:minor numbers in decimal or hex
 get_numeric_dev() {
