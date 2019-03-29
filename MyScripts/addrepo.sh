@@ -2,7 +2,7 @@
 ###
 # FileName: addrepo.sh
 # Author: ihuangch -huangch96@qq.com
-# Description: ---
+# Description: add aliyun yum repo, epel repo, docker aliyun repo, kubernetes aliyun repo
 # Create:2019-03-27 16:45:47
 ###
 
@@ -28,8 +28,20 @@ mv /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.backup
 mv /etc/yum.repos.d/epel-testing.repo /etc/yum.repos.d/epel-testing.repo.backup
 wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 ;;
+k8s|kubernetes)
+# add kubernetes
+cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+EOF
+;;
 *)
-echo "Usage: $0 6|centos6|Centos6|7|centos7|Centos7"
+echo "Usage: $0 6|centos6|Centos6|7|centos7|Centos7|k8s|kubernetes"
 esac
 
 yum clean all
