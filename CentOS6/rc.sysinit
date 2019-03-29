@@ -170,11 +170,13 @@ fi
 
 # Only read this once.
 cmdline=$(cat /proc/cmdline)
+
 # 系统信息，内核启动信息/proc/cmdline
 
 
 # Initialize hardware
 # 初始化硬件设备
+
 if [ -f /proc/sys/kernel/modprobe ]; then
    if ! strstr "$cmdline" nomodules && [ -f /proc/modules ] ; then
        sysctl -w kernel.modprobe="/sbin/modprobe" >/dev/null 2>&1
@@ -183,6 +185,7 @@ if [ -f /proc/sys/kernel/modprobe ]; then
        sysctl -w kernel.modprobe="/bin/true" >/dev/null 2>&1
    fi
 fi
+
 # /proc/sys/kernel/modprobe: 内核中加载模块
 # cat /proc/sys/kernel/modprobe
 # /sbin/modprobe 
@@ -211,10 +214,14 @@ nashpid=$(pidof nash 2>/dev/null)
 unset nashpid
 /sbin/start_udev
 
+# pidof 命令
+# pidof -- find the process ID of a running program
+
 # Load other user-defined modules
 for file in /etc/sysconfig/modules/*.modules ; do
   [ -x $file ] && $file
 done
+
 # 加载其它用户定义的模块
 # 如果文件存在 /etc/sysconfig/modules/ 目录下，并且以 .modules 结尾
 # 如果对于文件有执行权限，就执行文件
